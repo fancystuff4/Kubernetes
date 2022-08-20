@@ -25,10 +25,10 @@ spec:
     image: nginx
 ```
 
-```
+```bash
 kubectl apply -f <file name>
 kubectl apply -f pod.yaml
-```bash
+```
 
 **List Pods**
 
