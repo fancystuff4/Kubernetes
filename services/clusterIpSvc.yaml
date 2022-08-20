@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: service-fleetman-queue
+
+spec:
+ selector:
+  app: service-queue
+ ports:
+ - name: endpoint
+   targetPort: 80 #container port
+   port: 61616 #service port
+
+ type: ClusterIP
