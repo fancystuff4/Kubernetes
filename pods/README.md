@@ -9,7 +9,7 @@ Kubernetes does not deploy containers directly on the worker nodes.The container
 kubectl run <desired-pod-name> --image <Container-Image>
 
 # Replace Pod Name, Container Image
-kubectl run my-first-pod --image richardchesterwood/k8s-fleetman-webapp-angular:release0-5
+kubectl run my-first-pod --image nginx
 ```
 - Creating of pod using declerative way.
 
@@ -22,7 +22,7 @@ metadata:
 spec:
   containers:
   - name: webapp
-    image: richardchesterwood/k8s-fleetman-webapp-angular:release0
+    image: nginx
 ```
 
 **List Pods**
@@ -62,11 +62,6 @@ kubectl logs my-first-pod
 kubectl logs <pod-name>
 kubectl logs -f my-first-pod
 ```
-Important Notes
-- Refer below link and search for Interacting with running Pods for additional log options
-- Troubleshooting skills are very important. So please go through all logging options available and master them.
-- Reference: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-
 **Connect to Container in a POD**
 - Connect to a Container in POD and execute commands
 ```bash

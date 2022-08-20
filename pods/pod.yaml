@@ -1,0 +1,9 @@
+#Yaml file
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+spec:
+  containers:
+  - name: webapp
+    image: nginx
