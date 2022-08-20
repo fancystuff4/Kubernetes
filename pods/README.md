@@ -25,6 +25,11 @@ spec:
     image: nginx
 ```
 
+```
+kubectl apply -f <file name>
+kubectl apply -f pod.yaml
+```bash
+
 **List Pods**
 
 ```bash
@@ -59,7 +64,7 @@ kubectl logs <pod-name>
 kubectl logs my-first-pod
 
 # Stream pod logs with -f option and access application to see logs
-kubectl logs <pod-name>
+kubectl logs -f <pod-name>
 kubectl logs -f my-first-pod
 ```
 **Connect to Container in a POD**
