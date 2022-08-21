@@ -1,0 +1,12 @@
+#Yaml file
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+  labels:
+    layer: ui
+    tag: sample
+spec:
+  containers:
+  - name: webapp1
+    image: mrsam1234/ttfa-webapp:v1

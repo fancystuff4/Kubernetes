@@ -21,14 +21,14 @@ kubectl create service nodeport nginx --tcp=80:80 --node-port=30080
 apiVersion: v1
 kind: Service
 metadata:
- name: fleetman-queue
+ name: nodePort-Service
 
 spec:
  selector:
-  app: queue
+  layer: ui
  ports:
  - name: http
-   targetPort: 80
+   targetPort: 8888
    port: 8161
    nodePort: 30010
 
@@ -45,7 +45,7 @@ In this case the service creates a virtual IP inside the cluster to enable commu
 apiVersion: v1
 kind: Service
 metadata:
- name: service-fleetman-queue
+ name: service-queue
 
 spec:
  selector:
@@ -67,7 +67,7 @@ The third type is a LoadBalancer, were it provisions a load balancer for our ser
 apiVersion: v1
 kind: Service
 metadata:
- name: fleetman-webapp
+ name: service-webapp
 spec:
  selector:
   app: webapp

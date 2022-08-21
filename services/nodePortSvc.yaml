@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
- name: fleetman-queue
+ name: nodePort-node-js
 
 spec:
  selector:
-  app: queue
+  layer: ui
  ports:
  - name: http
-   targetPort: 80
+   targetPort: 8888
    port: 8161
    nodePort: 30010
 

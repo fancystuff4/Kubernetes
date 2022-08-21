@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: web-app-rc
+  labels:
+    app: web-app
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      layer: ui
+  template:
+    metadata:
+      name: webapp
+      labels:
+        layer: ui
+    spec:
+      containers:
+      - name: webapp1
+        image: mrsam1234/ttfa-webapp:v1
