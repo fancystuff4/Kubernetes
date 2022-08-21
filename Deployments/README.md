@@ -5,7 +5,7 @@ The deployment provides us with the capability to upgrade the underlying instanc
 **Creation of deployment in imperative**
 ```bash
 kubectl create deployment <Deplyment-Name> --image=<Container-Image>
-kubectl create deployment my-first-deployment --image=stacksimplify/kubenginx:1.0.0 
+kubectl create deployment my-first-deployment --image=mrsam1234/ttfa-webapp:v1 
 
 # Verify Deployment
 kubectl get deployments
@@ -49,7 +49,7 @@ spec:
     spec:
       containers:
       - name: web-app-container12
-        image: richardchesterwood/k8s-fleetman-webapp-angular:release0
+        image: mrsam1234/ttfa-webapp:v1
 
 #kubectl apply -f  deployment-demo.yml
 ```
@@ -63,7 +63,7 @@ kubectl get deployment my-first-deployment -o yaml
 
 # Update Deployment - SHOULD WORK NOW
 kubectl set image deployment/<Deployment-Name> <Container-Name>=<Container-Image> --record=true
-kubectl set image deployment/my-first-deployment kubenginx=stacksimplify/kubenginx:2.0.0 --record=true
+kubectl set image deployment/my-first-deployment kubenginx=mrsam1234/ttfa-webapp:v2 --record=true
 ```
 
 
@@ -152,7 +152,7 @@ kubectl rollout pause deployment/<Deployment-Name>
 kubectl rollout pause deployment/my-first-deployment
 
 # Update Deployment - Application Version from V3 to V4
-kubectl set image deployment/my-first-deployment kubenginx=stacksimplify/kubenginx:4.0.0 --record=true
+kubectl set image deployment/my-first-deployment web-app-container12=mrsam1234/ttfa-webapp:v2 --record=true
 
 # Check the Rollout History of a Deployment
 kubectl rollout history deployment/my-first-deployment  
@@ -182,7 +182,7 @@ Observation: You should see new ReplicaSet.
 ```bash
 # Delete Deployment
 kubectl delete deployment my-first-deployment
-kubectl delete deploy -f deployment.yaml
+kubectl delete  -f deployment.yaml
 
 # Get all Objects from Kubernetes default namespace
 kubectl get all

@@ -1,0 +1,26 @@
+#deployment-demo.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  labels:
+    app: web-app
+spec:
+  strategy:
+    type: Recreate  #RollingUpdate
+  replicas: 9
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      name: web-app
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app-container12
+        image: mrsam1234/ttfa-webapp:v1
+
+#kubectl apply -f  deployment.yaml
