@@ -1,11 +1,12 @@
-#Yaml file
 apiVersion: v1
 kind: Pod
 metadata:
-  name: webapp
-  labels:
-    service: webapp
+ name: webapp-pod
+ labels:
+  layer: ui
+  tag1: value1
+  tag2: value2
 spec:
-  containers:
-  - name: webapp
-    image: nginx
+ containers:
+ - name: webapp
+   image: mrsam1234/node-js:v1
