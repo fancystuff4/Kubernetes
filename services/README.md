@@ -21,7 +21,7 @@ kubectl create service nodeport nginx --tcp=80:80 --node-port=30080
 apiVersion: v1
 kind: Service
 metadata:
- name: nodePort-Service
+ name: node-port-node-js
 
 spec:
  selector:
@@ -33,7 +33,6 @@ spec:
    nodePort: 30010
 
  type: NodePort
-
 ```
 
 
