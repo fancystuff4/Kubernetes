@@ -17,7 +17,6 @@ It's important to note that there are two similar terms replication controller a
 **Create ReplicaSet**
 ```bash
 #replicaSet-demo.yml
-
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -25,19 +24,20 @@ metadata:
   labels:
     app: web-app
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
-      app: web-app
+      layer: ui
   template:
     metadata:
-      labels:
-        app: web-app
+     name: webapp-pod
+     labels:
+      layer: ui
     spec:
-      containers:
-      - name: web-app-container
-        image: richardchesterwood/k8s-fleetman-webapp-angular:release0
-        
+     containers:
+     - name: webapp
+       image: mrsam1234/node-js:v1
+       
 #kubectl apply -f  replicaSet-demo.yml
 ```
 

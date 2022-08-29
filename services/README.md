@@ -21,7 +21,7 @@ kubectl create service nodeport nginx --tcp=80:80 --node-port=30080
 apiVersion: v1
 kind: Service
 metadata:
- name: nodePort-Service
+ name: node-port-service
 
 spec:
  selector:
@@ -33,7 +33,6 @@ spec:
    nodePort: 30010
 
  type: NodePort
-
 ```
 
 
@@ -67,13 +66,15 @@ The third type is a LoadBalancer, were it provisions a load balancer for our ser
 apiVersion: v1
 kind: Service
 metadata:
- name: service-webapp
+ name: load-balancer-service
+
 spec:
  selector:
-  app: webapp
+  layer: ui
  ports:
  - name: http
-   port: 8080 #LoadBalancer Port better to use 80
-   targetPort: 80  #container Port
+   targetPort: 8888
+   port: 80
+
  type: LoadBalancer
 ```
