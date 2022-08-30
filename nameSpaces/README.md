@@ -57,7 +57,7 @@ kubectl get po -n default
 
 ```
 
-**Allocating fixed space to namespace, If it exceeds that all the resources in that namespace will be created**
+**Allocating fixed space to namespace, If it exceeds that all the resources in that namespace will be recreated**
 ```bash
 apiVersion: v1
 kind: ResourceQuota
