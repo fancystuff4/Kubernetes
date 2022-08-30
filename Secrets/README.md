@@ -7,7 +7,7 @@ Three way to declare Secret in manifeast
  - Volume
 
 **Encoding**
-``bash
+```bash
 #encoding
 echo  "<value>" | base64
 
