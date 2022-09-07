@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-pod
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: queue
+ template:
+  metadata:
+   labels:
+    app: queue
+  spec:
+   containers:
+   - name: queue
+     image: mrsam1234/ttfa-queque:v1
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+ name: queue-svc-pub
+
+spec:
+ selector:
+  app: queue
+ ports:
+ - name: http
+   port: 8161
+   nodePort: 30010
+
+ type: NodePort
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: fleetman-queue
+spec:
+  selector:
+    app: queue
+  ports:
+  - name: endpoint
+    port: 61616
+
+  type: ClusterIP
