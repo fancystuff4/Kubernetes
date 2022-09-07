@@ -1,12 +1,12 @@
 **Node Affinity**
 
-Schudeling a pod spcefic to a node using node selector
+Schudeling a pod spcefic to a node using node affinity
 
 - Labeling nodes
 ```bash
 
 kubectl label nodes <node-name> <label-key>=<label-value>
-kubectl label node ip-192-168-33-180.us-east-2.compute.internal size=medium
+kubectl label node ip-192-168-33-180.us-east-2.compute.internal size=large
 
 ``` 
 - Mentioning nodeAffinity in pod manifest 
