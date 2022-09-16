@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracker
+  labels:
+    app: tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tracker
+  template:
+    metadata:
+      labels:
+        app: tracker
+    spec:
+      containers:
+      - name: fleetman-position-tracker
+        image: mrsam1234/ttfa-position-tracker:v3
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: production-microservice
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: fleetman-position-tracker
+spec:
+  selector:
+    app: tracker
+  ports:
+  - name: http
+    port: 8080
+    # nodePort: 30020
+
+  type: ClusterIP  #NodePort
