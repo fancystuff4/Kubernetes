@@ -1,5 +1,5 @@
 
-##Template to launch Ec2 instance 
+## Template to launch Ec2 instance 
 
 **Command to initailize terraform template**
 ```bash
