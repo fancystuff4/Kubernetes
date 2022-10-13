@@ -6,7 +6,7 @@
 terraform init
 ```
 
-**Commant to validate terraform template**
+**Command to validate terraform template**
 ```bash
 terraform validate
 ```
